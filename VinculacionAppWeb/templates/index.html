@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detección de Espectros de Hojas de Banano</title>
+    <!-- Agregar referencia al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Detección de Espectros de Hojas de Banano</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data" class="container mt-5">
+        <div class="form-group">
+            <label for="file">Seleccionar Imagen</label>
+            <input type="file" class="form-control-file" name="file" id="file" accept=".jpg, .jpeg, .png, .gif" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Subir Imagen</button>
+    </form>
+
+    <!-- Agregar referencia al archivo JavaScript de Bootstrap (opcional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

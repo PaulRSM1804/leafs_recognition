@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado de la Detección</title>
+    <!-- Agregar referencia al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" class="form-control-file mt-3">
+        <button type="submit" class="btn btn-primary mt-3">Cargar Imagen</button>
+    </form>
+    
+    <!-- Mostrar opciones para imágenes espestrales -->
+    {% if uploaded_images %}
+        <h2 class="mt-4">Imágenes Cargadas</h2>
+        <form method="POST" action="/generate_spectral">
+            <ul class="list-group">
+                {% for uploaded_image in uploaded_images %}
+                    <li class="list-group-item">
+                        <input type="radio" name="spectral_image" value="{{ uploaded_image }}" id="{{ loop.index }}">
+                        <label for="{{ loop.index }}">Imagen {{ loop.index }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit" class="btn btn-success mt-3">Generar Imagen Espectral</button>
+        </form>
+    {% endif %}
+    
+
+    <!-- Agregar referencia al archivo JavaScript de Bootstrap (opcional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
